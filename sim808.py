@@ -9,7 +9,7 @@
 # 	   RxD 		|| 			TxD (GPIO 14)
 
 # sudo python sim808.py
-
+import os
 import time 
 import serial
 import RPi.GPIO as GPIO
@@ -115,8 +115,17 @@ try:
                     GSM_MakeSMS(datalog)
                     #datalog=''
                     dataserial=''
-               if(dataserial.find("CHANGE 200 DPI")>0);
-
+               #change DPI 
+                if(dataserial.find("200 to 300")>0);
+                    print dataserial
+                    os.system('cd ~/sim800.pi/bin | ./cron300.sh')
+                    dataserial=''
+                
+                if(dataserial.find("300 to 200")>0);
+                    print dataserial
+                    os.system('cd ~/sim800.pi/bin | ./cron200.sh')
+                    dataserial='' 
+                    
             timecheck=datetime.datetime.now()
             if timecheck.hour==22 and timecheck.minute==35 and timecheck.second<5:
                 #read file log 1 va gui sms =)))
