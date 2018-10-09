@@ -100,8 +100,8 @@ def changeDPIto200():
     os.system('sh cron200.sh')
     return
 
-def changeDPIto300()
-    os.system('sh cron300.sh'):
+def changeDPIto300():
+    os.system('sh cron300.sh')
     return
 
 # Simple example :
