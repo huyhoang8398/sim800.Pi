@@ -100,36 +100,35 @@ def GSM_MakeSMS(data):
 # Simple example :
 try:
     print "\n\nBat dau test module Sim808 voi Raspberry Pi ... \n"
-        print "Bat nguon cho module Sim808...\n"
-        GSM_Power()			# Bat nguon cho module 
-        GSM_Init() 			# Khoi dong module 
-        #GSM_MakeCall() 		# Tao cuoc goi
-        #GSM_MakeSMS() 		# Tao tin nhan 
-        dataserial=''
-        while (1):
-            dataserial=dataserial+ser.read().decode('utf-8')
+    print "Bat nguon cho module Sim808...\n"
+    GSM_Power()			# Bat nguon cho module 
+    GSM_Init() 			# Khoi dong module 
+    #GSM_MakeCall() 		# Tao cuoc goi
+    #GSM_MakeSMS() 		# Tao tin nhan 
+    dataserial=''
+    while (1):
+        dataserial=dataserial+ser.read().decode('utf-8')
 ############ Add more function here ##########
-            if(len(dataserial)>0):
-                if(dataserial.find("log")>0):
-                    print dataserial
-                    datalog = ''
+        if(len(dataserial)>0):
+            if(dataserial.find("log")>0):
+                print dataserial
+                datalog = ''
                     
                     ##kill inotiwait job
-                    os.chdir(binPath)
-                    os.system("sh killjob.sh")
-                    os.chdir(defPath)
-
-                    ## read data from log file 
-                    myfile= open('/home/pi/scann/log/inotiwait.txt', 'r') 
-                    datalog = myfile.read()
-                    print 'da nhan dung sms'
-                    GSM_MakeSMS(datalog)
-                    dataserial=''
+                os.chdir(binPath)
+                os.system("sh killjob.sh")
+                os.chdir(defPath)
+                ## read data from log file 
+                myfile= open('/home/pi/scann/log/inotiwait.txt', 'r') 
+                datalog = myfile.read()
+                print 'da nhan dung sms'
+                GSM_MakeSMS(datalog)
+                dataserial=''                    
                     
-                    #run inotiwait again
-                    os.chdir(binPath)
-                    os.system("sh inotiwait.sh")
-                    os.chdir(defPath)              
+                #run inotiwait again
+                os.chdir(binPath)
+                os.system("sh inotiwait.sh")
+                os.chdir(defPath)              
               #change DPI 
                 if(dataserial.find("200 to 300")>0);
                     print dataserial
