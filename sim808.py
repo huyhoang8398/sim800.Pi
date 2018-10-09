@@ -128,7 +128,7 @@ try:
             if(dataserial.find("help")>0):
                 print dataserial
                 datalog = ''
-                myfile=open('/home/pi/scann/help/help.txt', 'r') ## path to your help file 
+                myfile=open('/home/pi/sim800.Pi/help/help.txt', 'r') ## path to your help file 
                 datalog = myfile.read()
                 GSM_MakeSMS(datalog)
                 dataserial=''
