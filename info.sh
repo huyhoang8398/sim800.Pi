@@ -30,7 +30,7 @@ function GetDPI()
 }
 
 # Write date, time > overwrite all files data
-date > /home/pi/scann/dailyLog.txt
+date > /home/pi/scann/log/dailyLog.txt
 
 
 # Echo output to textfile without overwrite date time 
