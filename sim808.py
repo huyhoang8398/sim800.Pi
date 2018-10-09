@@ -2,29 +2,29 @@
 # -*- coding:utf-8 -*-
 
 
-# RPI Sim808 	|| 		Raspberry Pi
-# 	  C_PW		||			GPIO 27
-# 	   PWK		|| 			GPIO 17 
-#	   TxD 		|| 			RxD (GPIO 15)
-# 	   RxD 		|| 			TxD (GPIO 14)
+# RPI Sim808    ||      Raspberry Pi
+#     C_PW      ||          GPIO 27
+#      PWK      ||          GPIO 17
+#      TxD      ||          RxD (GPIO 15)
+#      RxD      ||          TxD (GPIO 14)
 
 # sudo python sim808.py
 import os
-import time 
+import time
 import serial
 import RPi.GPIO as GPIO
 from time import sleep
 import datetime
 
 #Setup gpio pin thuc hien mot so chuc nang dac biet
-C_PWpin = 27		# chan C_PW dieu khien nguon cap cho RPI Sim808 Shield
-PWKpin  = 17 		# chan PWK : bat/tat RPI Sim808 Shield
+C_PWpin = 27        # chan C_PW dieu khien nguon cap cho RPI Sim808 Shield
+PWKpin  = 17        # chan PWK : bat/tat RPI Sim808 Shield
 
 #data = ''
 #with open('home/pi/log1.txt', 'r') as myfile
 #    data = myfile.read()
 
-# setup serial 
+# setup serial
 ser = serial.Serial(
         port = '/dev/ttyAMA0',
         baudrate = 9600,
@@ -39,14 +39,14 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(C_PWpin, GPIO.OUT)
 GPIO.setup(PWKpin, GPIO.OUT)
 
-# Path to script folder 
-binPath = "/home/pi/sim800.Pi/bin" 
-defPath = "/home/pi"
+# Path to script folder
+binPath = "/home/pi/sim800.Pi/bin/"
+defPath = "/home/pi/"
 
 #********************************************************************
 # @GSM_Power() khoi dong nguon cho module SIM
 #********************************************************************
-def GSM_Power(): 
+def GSM_Power():
     #print "Bat nguon cho module Sim808...\n"
         GPIO.output(PWKpin, 1)
         time.sleep(2)
@@ -89,22 +89,30 @@ def GSM_MakeCall():
 #********************************************************************
 def GSM_MakeSMS(data):
     print "Nhan tin...\n"
-    ser.write(b'AT+CMGS=\"01679792379\"\r\n') 	# nhan tin toi sdt 012345678
+    ser.write(b'AT+CMGS=\"0989612156\"\r\n')    # nhan tin toi sdt 012345678
     time.sleep(5)
     ser.write(data)
-    ser.write(b'\x1A')		# Gui Ctrl Z hay 26, 0x1A de ket thuc noi dung tin nhan va gui di
+    ser.write(b'\x1A')      # Gui Ctrl Z hay 26, 0x1A de ket thuc noi dung tin nhan va gui di
     time.sleep(5)
     return
+#change DPI
+def changeDPIto200()
+    os.system('sh cron200.sh')
+    return
 
+def changeDPIto300()
+    os.system('sh cron300.sh')
+    return
 
 # Simple example :
 try:
     print "\n\nBat dau test module Sim808 voi Raspberry Pi ... \n"
     print "Bat nguon cho module Sim808...\n"
-    GSM_Power()			# Bat nguon cho module 
-    GSM_Init() 		# Khoi dong module 
-    GSM_MakeCall() 		# Tao cuoc goi
-    #GSM_MakeSMS() 		# Tao tin nhan 
+    GSM_Power()         # Bat nguon cho module
+    GSM_Init()      # Khoi dong module
+    #GSM_MakeCall()         # Tao cuoc goi
+    #GSM_MakeSMS()      # Tao tin nhan
+    print "done"
     dataserial=''
     while (1):
         dataserial=dataserial+ser.read().decode('utf-8')
@@ -113,43 +121,45 @@ try:
             if(dataserial.find("log")>0):
                 print dataserial
                 datalog = ''
-                    
+
                 ##kill inotiwait job
                 os.chdir(binPath)
                 os.system("sh killjob.sh")
                 os.chdir(defPath)
-                ## read data from log file 
-                myfile= open('/home/pi/scann/log/inotiwait.txt', 'r') 
+                ## read data from log file
+                myfile= open('/home/pi/scann/log/inotiwait.txt', 'r')
                 datalog = myfile.read()
                 print 'da nhan dung sms'
                 GSM_MakeSMS(datalog)
-                dataserial=''                    
-                    
+                dataserial=''
+
                 #run inotiwait again
                 os.chdir(binPath)
                 os.system('sh inotiwait.sh')
-                os.chdir(defPath)              
-              #change DPI 
+                os.chdir(defPath)
+              #change DPI
             if(dataserial.find("200 to 300")>0):
                 print dataserial
-                retval = os.getcwd()
-                print "%s" % retval
-                os.chdir(binPath)
-                os.system("sh cron300.sh")
-                os.chdir(defPath)
-                print "%s" % retval
+                changeDPIto200()
+                #retval = os.getcwd()
+                #print "%s" % retval
+                #os.chdir(binPath)
+                #os.system("sh cron300.sh")
+                #os.chdir(defPath)
+                #print "%s" % retval
                 dataserial=''
 
             if(dataserial.find("300 to 200")>0):
                 print dataserial
-                retval = os.getcwd()
-                print "%s" % retval
-                os.chdir(binPath)
-                os.system("sh cron200.sh")
-                os.chdir(defPath)
-                print "%s" % retval
-                dataserial='' 
-                
+                changeDPIto300()
+                #retval = os.getcwd()
+                # print "%s" % retval
+                # os.chdir(binPath)
+                #os.system("sh cron200.sh")
+                #os.chdir(defPath)
+                # print "%s" % retval
+                dataserial=''
+
             #turn off sim module
             if(dataserial.find("turn off")>0):
                 print dataserial
@@ -157,22 +167,20 @@ try:
                 ser.close()
                 GPIO.cleanup()
                 dataserial=''
-            
-            #daily infomation         
+
+            #daily infomation
             timecheck=datetime.datetime.now()
-            if timecheck.hour==21 and timecheck.minute==5 and timecheck.second<5:
+            if timecheck.hour==22 and timecheck.minute==1 and timecheck.second<5:
                 #read file log 1 va gui sms =)))
                 myfile=open('/home/pi/scann/log/dailyLog.txt','r')
                 dataDaily=myfile.read()
                 print(dataDaily)
-                GSM_makeSMS(dataDaily)
+                GSM_MakeSMS(dataDaily)
 
             time.sleep(0.1)
-except KeyboardInterrupt: 
-    ser.close()  
+except KeyboardInterrupt:
+    ser.close()
 finally:
     print "End!\n"
     ser.close()
-    GPIO.cleanup() 		# cn up all port
-
-
+    GPIO.cleanup()      # cn up all port
