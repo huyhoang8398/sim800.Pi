@@ -95,14 +95,20 @@ def GSM_MakeSMS(data):
     ser.write(b'\x1A')      # Gui Ctrl Z hay 26, 0x1A de ket thuc noi dung tin nhan va gui di
     time.sleep(5)
     return
-#change DPI
+#change DPI##################
 def changeDPIto200():
-    subprocess.call(['sh cron200.sh'])
-    return
+    subprocess.call(['./cron200.sh'])
 
 def changeDPIto300():
-    subprocess.call(['sh cron300.sh'])
-    return
+    subprocess.call(['./cron300.sh'])
+
+########### kill inotiwait background job ########
+def killIno():
+    subprocess.call(['./killjob.sh'])
+
+######## run inotiwait again ####
+def Inowait():
+    subprocess.call(['./inowait.sh'])
 
 # Simple example :
 try:
@@ -121,26 +127,20 @@ try:
             if(dataserial.find("log")>0):
                 print dataserial
                 datalog = ''
-
-                ##kill inotiwait job
-                os.chdir(binPath)
-                os.system("sh killjob.sh")
-                os.chdir(defPath)
+                killIno()
                 ## read data from log file
-                myfile= open('/home/pi/scann/log/inotiwait.txt', 'r')
+                myfile= open('/home/pi/scann/log/inotiwait.txt', 'r') #### Path to your log file 
                 datalog = myfile.read()
-                print 'da nhan dung sms'
                 GSM_MakeSMS(datalog)
                 dataserial=''
 
                 #run inotiwait again
-                os.chdir(binPath)
-                os.system('sh inotiwait.sh')
-                os.chdir(defPath)
-              #change DPI
+                Inowait()
+
+              #change DPI#########
             if(dataserial.find("200 to 300")>0):
                 print dataserial
-                changeDPIto200()
+                changeDPIto300()
                 #retval = os.getcwd()
                 #print "%s" % retval
                 #os.chdir(binPath)
@@ -151,7 +151,7 @@ try:
 
             if(dataserial.find("300 to 200")>0):
                 print dataserial
-                changeDPIto300()
+                changeDPIto200()
                 #retval = os.getcwd()
                 # print "%s" % retval
                 # os.chdir(binPath)
@@ -160,7 +160,7 @@ try:
                 # print "%s" % retval
                 dataserial=''
 
-            #turn off sim module
+            #turn off sim module########
             if(dataserial.find("turn off")>0):
                 print dataserial
                 GSM_Power()
@@ -168,11 +168,11 @@ try:
                 GPIO.cleanup()
                 dataserial=''
 
-            #daily infomation
+            #daily infomation########
             timecheck=datetime.datetime.now()
-            if timecheck.hour==22 and timecheck.minute==1 and timecheck.second<5:
+            if timecheck.hour==22 and timecheck.minute==1 and timecheck.second<5: #### change time that you want to receive your sms
                 #read file log 1 va gui sms =)))
-                myfile=open('/home/pi/scann/log/dailyLog.txt','r')
+                myfile=open('/home/pi/scann/log/dailyLog.txt','r')  #### path to your daily log file 
                 dataDaily=myfile.read()
                 print(dataDaily)
                 GSM_MakeSMS(dataDaily)
