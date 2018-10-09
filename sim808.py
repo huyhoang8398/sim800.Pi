@@ -104,36 +104,52 @@ try:
         dataserial=''
         while (1):
             dataserial=dataserial+ser.read().decode('utf-8')
-
+############ Add more function here ##########
             if(len(dataserial)>0):
-                if(dataserial.find("GUISMS")>0):
+                if(dataserial.find("log")>0):
                     print dataserial
                     datalog = ''
-                    myfile= open('/home/pi/log1.txt', 'r') 
+                    
+                    ##kill inotiwait job
+
+                    os.system("./killjob.sh")
+                    ## read data from log file 
+                    myfile= open('/home/pi/scann/log/inotiwait.txt', 'r') 
                     datalog = myfile.read()
                     print 'da nhan dung sms'
                     GSM_MakeSMS(datalog)
-                    #datalog=''
                     dataserial=''
-               #change DPI 
+
+                    #run inotiwait again
+                    os.system("inotiwait.sh")
+              
+              #change DPI 
                 if(dataserial.find("200 to 300")>0);
                     print dataserial
-                    os.system('cd ~/sim800.pi/bin | ./cron300.sh')
+                    os.system('cd ~/sim800.pi/bin | ./cron300.sh | cd ~')
                     dataserial=''
-                
+
                 if(dataserial.find("300 to 200")>0);
                     print dataserial
-                    os.system('cd ~/sim800.pi/bin | ./cron200.sh')
+                    os.system('cd ~/sim800.pi/bin | ./cron200.sh | cd ~')
                     dataserial='' 
-                    
+                
+            #turn off sim module
+                if(dataserial.find("turn off")>0);
+                    print dataserial
+                    GSM_Power()
+                    ser.close()
+                    GPIO.cleanup()
+                    dataserial=''
+            
+            #daily infomation         
             timecheck=datetime.datetime.now()
             if timecheck.hour==22 and timecheck.minute==35 and timecheck.second<5:
                 #read file log 1 va gui sms =)))
-
-                    myfile=open('/home/pi/log1.txt','r')
-                    mydatalog1=myfile.read()
-                    print(mydatalog1)
-                    #GSM_makeSMS(datalog1)
+                    myfile=open('/home/pi/scann/log/dailyLog.txt','r')
+                    dataDaily=myfile.read()
+                    print(dataDaily)
+                    GSM_makeSMS(dataDaily)
 
             time.sleep(0.1)
 
