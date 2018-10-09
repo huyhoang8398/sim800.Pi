@@ -134,7 +134,7 @@ try:
                 print dataserial
                 retval = os.getcwd()
                 print "%s" % retval
-                os.chdir(path)
+                os.chdir(binPath)
                 os.system("sh cron300.sh")
                 os.chdir(defPath)
                 print "%s" % retval
@@ -144,7 +144,7 @@ try:
                 print dataserial
                 retval = os.getcwd()
                 print "%s" % retval
-                os.chdir(path)
+                os.chdir(binPath)
                 os.system("sh cron200.sh")
                 os.chdir(defPath)
                 print "%s" % retval
