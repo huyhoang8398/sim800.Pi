@@ -8,7 +8,7 @@ str4="DPI:" ## your DPI
 avaiMem=$(df -h /tmp | tail -1 | awk '{print $4}')
 infoPng=$(find /home/pi/scann/pictures | grep .png | wc -l)
 infoJpg=$(find /home/pi/pictures | grep .jpg | wc -l)
-infoDPI=$(crontab -l > fileTmp.txt && cat fileTmp.txt | grep java | awk '{print $(NF-2)}')
+infoDPI=$(crontab -l > fileTmp.txt; < fileTmp.txt grep java | awk '{print $(NF-2)}')
 
 function GET_MEM()
 {
@@ -26,7 +26,7 @@ function GET_JPG()
 }
 function GetDPI()
 {
-	echo -e "$str4 $infoDPI"
+	echo -e "$str4 $infoDPI\n"
 }
 
 # Write date, time > overwrite all files data
