@@ -26,13 +26,13 @@ PWKpin  = 17        # chan PWK : bat/tat RPI Sim808 Shield
 
 # setup serial
 ser = serial.Serial(
-        port = '/dev/ttyAMA0',
-        baudrate = 9600,
-        parity = serial.PARITY_NONE,
-        stopbits = serial.STOPBITS_ONE,
-        bytesize = serial.EIGHTBITS,
-        timeout = 1
-        )
+    port = '/dev/ttyAMA0',
+    baudrate = 9600,
+    parity = serial.PARITY_NONE,
+    stopbits = serial.STOPBITS_ONE,
+    bytesize = serial.EIGHTBITS,
+    timeout = 1
+)
 
 # setup GPIO
 GPIO.setmode(GPIO.BCM)
@@ -48,11 +48,11 @@ defPath = "/home/pi/"
 #********************************************************************
 def GSM_Power():
     #print "Bat nguon cho module Sim808...\n"
-        GPIO.output(PWKpin, 1)
-        time.sleep(2)
-        GPIO.output(PWKpin, 0)
-        time.sleep(10)
-        return
+    GPIO.output(PWKpin, 1)
+    time.sleep(2)
+    GPIO.output(PWKpin, 0)
+    time.sleep(10)
+    return
 
 
 #********************************************************************
@@ -124,6 +124,16 @@ try:
         dataserial=dataserial+ser.read().decode('utf-8')
 ############ Add more function here ##########
         if(len(dataserial)>0):
+            ###### Help ######
+            if(dataserial.find("help")>0):
+                print dataserial
+                datalog = ''
+                myfile=open('/home/pi/scann/help/help.txt', 'r') ## path to your help file 
+                datalog = myfile.read()
+                GSM_MakeSMS(datalog)
+                dataserial=''
+
+            ##### track your file system ###
             if(dataserial.find("log")>0):
                 print dataserial
                 datalog = ''
@@ -161,12 +171,21 @@ try:
                 dataserial=''
 
             #turn off sim module########
+            if(dataserial.find("turn off sim")>0):
+                print dataserial
+                GSM_Power()
+                ser.close()
+                GPIO.cleanup()
+                dataserial=''
+            #### turn off your Pi ####
             if(dataserial.find("turn off")>0):
                 print dataserial
                 GSM_Power()
                 ser.close()
                 GPIO.cleanup()
                 dataserial=''
+                os.system("sudo shutdow now")
+
 
             #daily infomation########
             timecheck=datetime.datetime.now()
