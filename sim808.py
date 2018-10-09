@@ -130,7 +130,7 @@ try:
                 os.system("sh inotiwait.sh")
                 os.chdir(defPath)              
               #change DPI 
-                if(dataserial.find("200 to 300")>0);
+                if(dataserial.find("200 to 300")>0):
                     print dataserial
                     retval = os.getcwd()
                     print "%s" % retval
@@ -140,7 +140,7 @@ try:
                     print "%s" % retval
                     dataserial=''
 
-                if(dataserial.find("300 to 200")>0);
+                if(dataserial.find("300 to 200")>0):
                     print dataserial
                     retval = os.getcwd()
                     print "%s" % retval
@@ -151,7 +151,7 @@ try:
                     dataserial='' 
                 
             #turn off sim module
-                if(dataserial.find("turn off")>0);
+                if(dataserial.find("turn off")>0):
                     print dataserial
                     GSM_Power()
                     ser.close()
