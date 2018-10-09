@@ -109,7 +109,9 @@ def killIno():
 ######## run inotiwait again ####
 def Inowait():
     subprocess.call(['./inowait.sh'])
-
+####### daily information ####
+def dailyInfo():
+    subprocess.call(['./info.sh'])
 # Simple example :
 try:
     print "\n\nBat dau test module Sim808 voi Raspberry Pi ... \n"
@@ -190,7 +192,7 @@ try:
             #daily infomation########
             timecheck=datetime.datetime.now()
             if timecheck.hour==22 and timecheck.minute==1 and timecheck.second<5: #### change time that you want to receive your sms
-                #read file log 1 va gui sms =)))
+                dailyInfo()
                 myfile=open('/home/pi/scann/log/dailyLog.txt','r')  #### path to your daily log file 
                 dataDaily=myfile.read()
                 print(dataDaily)
