@@ -77,11 +77,11 @@ def GSM_Init():
 #********************************************************************
 def GSM_MakeCall():
     print "Goi dien...\n"
-        ser.write(b'ATD012345678;\r\n')  # Goi dien toi sdt 012345678
-        time.sleep(20)
-        ser.write(b'ATH\r\n')
-        time.sleep(2)
-        return
+    ser.write(b'ATD012345678;\r\n')  # Goi dien toi sdt 012345678
+    time.sleep(20)
+    ser.write(b'ATH\r\n')
+    time.sleep(2)
+    return
 
 
 #********************************************************************
@@ -89,12 +89,12 @@ def GSM_MakeCall():
 #********************************************************************
 def GSM_MakeSMS(data):
     print "Nhan tin...\n"
-        ser.write(b'AT+CMGS=\"01679792379\"\r\n') 	# nhan tin toi sdt 012345678
-        time.sleep(5)
-        ser.write(data)
-        ser.write(b'\x1A')		# Gui Ctrl Z hay 26, 0x1A de ket thuc noi dung tin nhan va gui di
-        time.sleep(5)
-        return
+    ser.write(b'AT+CMGS=\"01679792379\"\r\n') 	# nhan tin toi sdt 012345678
+    time.sleep(5)
+    ser.write(data)
+    ser.write(b'\x1A')		# Gui Ctrl Z hay 26, 0x1A de ket thuc noi dung tin nhan va gui di
+    time.sleep(5)
+    return
 
 
 # Simple example :
@@ -176,7 +176,7 @@ except KeyboardInterrupt:
     ser.close()  
 finally:
     print "End!\n"
-        ser.close()
-        GPIO.cleanup() 		# cn up all port
+    ser.close()
+    GPIO.cleanup() 		# cn up all port
 
 
