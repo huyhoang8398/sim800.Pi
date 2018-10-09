@@ -60,17 +60,17 @@ def GSM_Power():
 #********************************************************************
 def GSM_Init():
     print "Khoi tao cho module SIM808... \n"
-        ser.write(b'ATE0\r\n') 				# Tat che do phan hoi (Echo mode)
-        time.sleep(2)
-        ser.write(b'AT+IPR=9600\r\n') 		# Dat toc do truyen nhan du lieu 9600bps
-        time.sleep(2)
-        ser.write(b'AT+CMGF=1\r\n')			# Chon che do text mode
-        time.sleep(2)
-        ser.write(b'AT+CLIP=1\r\n') 		# Hien thi thong tin nguoi goi den
-        time.sleep(2)
-        ser.write(b'AT+CNMI=2,2\r\n') 		# Hien thi truc tiep noi dung tin nhan
-        time.sleep(2)
-        return
+    ser.write(b'ATE0\r\n')              # Tat che do phan hoi (Echo mode)
+    time.sleep(2)
+    ser.write(b'AT+IPR=9600\r\n')       # Dat toc do truyen nhan du lieu 9600bps
+    time.sleep(2)
+    ser.write(b'AT+CMGF=1\r\n')         # Chon che do text mode
+    time.sleep(2)
+    ser.write(b'AT+CLIP=1\r\n')         # Hien thi thong tin nguoi goi den
+    time.sleep(2)
+    ser.write(b'AT+CNMI=2,2\r\n')       # Hien thi truc tiep noi dung tin nhan
+    time.sleep(2)
+    return
 
 #********************************************************************
 # @GSM_MakeCall() tao cuoc goi
