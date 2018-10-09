@@ -168,9 +168,6 @@ try:
                     GSM_makeSMS(dataDaily)
 
             time.sleep(0.1)
-
-        print "Tat nguon cho module Sim808!\n"
-        GSM_Power()			# Tat nguon cho module
 except KeyboardInterrupt: 
     ser.close()  
 finally:
