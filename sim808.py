@@ -15,7 +15,7 @@ import serial
 import RPi.GPIO as GPIO
 from time import sleep
 import datetime
-
+import subprocess 
 #Setup gpio pin thuc hien mot so chuc nang dac biet
 C_PWpin = 27        # chan C_PW dieu khien nguon cap cho RPI Sim808 Shield
 PWKpin  = 17        # chan PWK : bat/tat RPI Sim808 Shield
@@ -97,11 +97,11 @@ def GSM_MakeSMS(data):
     return
 #change DPI
 def changeDPIto200():
-    os.system('sh cron200.sh')
+    subprocess.call(['sh cron200.sh'])
     return
 
 def changeDPIto300():
-    os.system('sh cron300.sh')
+    subprocess.call(['sh cron300.sh'])
     return
 
 # Simple example :
