@@ -39,6 +39,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(C_PWpin, GPIO.OUT)
 GPIO.setup(PWKpin, GPIO.OUT)
 
+# Path to script folder 
+binPath = "/home/pi/sim800.Pi/bin" 
+defPath = "/home/pi"
+
 #********************************************************************
 # @GSM_Power() khoi dong nguon cho module SIM
 #********************************************************************
@@ -111,27 +115,40 @@ try:
                     datalog = ''
                     
                     ##kill inotiwait job
+                    os.chdir(binPath)
+                    os.system("sh killjob.sh")
+                    os.chdir(defPath)
 
-                    os.system("./killjob.sh")
                     ## read data from log file 
                     myfile= open('/home/pi/scann/log/inotiwait.txt', 'r') 
                     datalog = myfile.read()
                     print 'da nhan dung sms'
                     GSM_MakeSMS(datalog)
                     dataserial=''
-
+                    
                     #run inotiwait again
-                    os.system("inotiwait.sh")
-              
+                    os.chdir(binPath)
+                    os.system("sh inotiwait.sh")
+                    os.chdir(defPath)              
               #change DPI 
                 if(dataserial.find("200 to 300")>0);
                     print dataserial
-                    os.system('cd ~/sim800.pi/bin | ./cron300.sh | cd ~')
+                    retval = os.getcwd()
+                    print "%s" % retval
+                    os.chdir(path)
+                    os.system("sh cron300.sh")
+                    os.chdir(defPath)
+                    print "%s" % retval
                     dataserial=''
 
                 if(dataserial.find("300 to 200")>0);
                     print dataserial
-                    os.system('cd ~/sim800.pi/bin | ./cron200.sh | cd ~')
+                    retval = os.getcwd()
+                    print "%s" % retval
+                    os.chdir(path)
+                    os.system("sh cron200.sh")
+                    os.chdir(defPath)
+                    print "%s" % retval
                     dataserial='' 
                 
             #turn off sim module
@@ -144,7 +161,7 @@ try:
             
             #daily infomation         
             timecheck=datetime.datetime.now()
-            if timecheck.hour==22 and timecheck.minute==35 and timecheck.second<5:
+            if timecheck.hour==21 and timecheck.minute==5 and timecheck.second<5:
                 #read file log 1 va gui sms =)))
                     myfile=open('/home/pi/scann/log/dailyLog.txt','r')
                     dataDaily=myfile.read()
