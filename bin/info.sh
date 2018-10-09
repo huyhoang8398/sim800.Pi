@@ -5,8 +5,8 @@ str3="Free storage:"
 
 #Linux command line 
 avaiMem=$(df -h /tmp | tail -1 | awk '{print $4}')
-infoPng=$(find /Users/huyhoang8398/Pictures | grep .png | wc -l)
-infoJpg=$(find /Users/huyhoang8398/Pictures | grep .jpg | wc -l)
+infoPng=$(find /home/pi/scann/pictures | grep .png | wc -l)
+infoJpg=$(find /home/pi/pictures | grep .jpg | wc -l)
 
 function GET_MEM()
 {
@@ -24,12 +24,12 @@ function GET_JPG()
 }
 
 # Write date, time > overwrite all files data
-date > /Users/huyhoang8398/test.txt
+date > /home/pi/scann/dailyLog.txt
 
 
 # Echo output to textfile without overwrite date time 
-echo $(GET_JPG) >> /Users/huyhoang8398/test.txt
-echo $(GET_PNG) >> /Users/huyhoang8398/test.txt
-echo $(GET_MEM) >> /Users/huyhoang8398/test.txt
+echo $(GET_JPG) >> /home/pi/scann/log/dailyLog.txt
+echo $(GET_PNG) >> /home/pi/scann/log/dailyLog.txt 
+echo $(GET_MEM) >> /home/pi/scann/log/dailyLog.txt 
 
 
