@@ -186,7 +186,7 @@ try:
                 ser.close()
                 GPIO.cleanup()
                 dataserial=''
-                os.system("sudo shutdow now")
+                os.system("sudo shutdown now")
 
 
             #daily infomation########
