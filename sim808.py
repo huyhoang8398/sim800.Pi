@@ -114,7 +114,7 @@ try:
                 print dataserial
                 datalog = ''
                     
-                    ##kill inotiwait job
+                ##kill inotiwait job
                 os.chdir(binPath)
                 os.system("sh killjob.sh")
                 os.chdir(defPath)
@@ -130,42 +130,42 @@ try:
                 os.system("sh inotiwait.sh")
                 os.chdir(defPath)              
               #change DPI 
-                if(dataserial.find("200 to 300")>0):
-                    print dataserial
-                    retval = os.getcwd()
-                    print "%s" % retval
-                    os.chdir(path)
-                    os.system("sh cron300.sh")
-                    os.chdir(defPath)
-                    print "%s" % retval
-                    dataserial=''
+            if(dataserial.find("200 to 300")>0):
+                print dataserial
+                retval = os.getcwd()
+                print "%s" % retval
+                os.chdir(path)
+                os.system("sh cron300.sh")
+                os.chdir(defPath)
+                print "%s" % retval
+                dataserial=''
 
-                if(dataserial.find("300 to 200")>0):
-                    print dataserial
-                    retval = os.getcwd()
-                    print "%s" % retval
-                    os.chdir(path)
-                    os.system("sh cron200.sh")
-                    os.chdir(defPath)
-                    print "%s" % retval
-                    dataserial='' 
+            if(dataserial.find("300 to 200")>0):
+                print dataserial
+                retval = os.getcwd()
+                print "%s" % retval
+                os.chdir(path)
+                os.system("sh cron200.sh")
+                os.chdir(defPath)
+                print "%s" % retval
+                dataserial='' 
                 
             #turn off sim module
-                if(dataserial.find("turn off")>0):
-                    print dataserial
-                    GSM_Power()
-                    ser.close()
-                    GPIO.cleanup()
-                    dataserial=''
+            if(dataserial.find("turn off")>0):
+                print dataserial
+                GSM_Power()
+                ser.close()
+                GPIO.cleanup()
+                dataserial=''
             
             #daily infomation         
             timecheck=datetime.datetime.now()
             if timecheck.hour==21 and timecheck.minute==5 and timecheck.second<5:
                 #read file log 1 va gui sms =)))
-                    myfile=open('/home/pi/scann/log/dailyLog.txt','r')
-                    dataDaily=myfile.read()
-                    print(dataDaily)
-                    GSM_makeSMS(dataDaily)
+                myfile=open('/home/pi/scann/log/dailyLog.txt','r')
+                dataDaily=myfile.read()
+                print(dataDaily)
+                GSM_makeSMS(dataDaily)
 
             time.sleep(0.1)
 except KeyboardInterrupt: 
