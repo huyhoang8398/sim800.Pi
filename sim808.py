@@ -127,7 +127,7 @@ try:
                     
                 #run inotiwait again
                 os.chdir(binPath)
-                os.system("sh inotiwait.sh")
+                os.system('sh inotiwait.sh')
                 os.chdir(defPath)              
               #change DPI 
             if(dataserial.find("200 to 300")>0):
@@ -135,7 +135,7 @@ try:
                 retval = os.getcwd()
                 print "%s" % retval
                 os.chdir(binPath)
-                os.system("sh cron300.sh")
+                os.system('sh cron300.sh')
                 os.chdir(defPath)
                 print "%s" % retval
                 dataserial=''
@@ -145,7 +145,7 @@ try:
                 retval = os.getcwd()
                 print "%s" % retval
                 os.chdir(binPath)
-                os.system("sh cron200.sh")
+                os.system('sh cron200.sh')
                 os.chdir(defPath)
                 print "%s" % retval
                 dataserial='' 
