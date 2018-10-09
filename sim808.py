@@ -77,7 +77,7 @@ def GSM_Init():
 #********************************************************************
 def GSM_MakeCall():
     print "Goi dien...\n"
-    ser.write(b'ATD012345678;\r\n')  # Goi dien toi sdt 012345678
+    ser.write(b'ATD0989612156;\r\n')  # Goi dien toi sdt 012345678
     time.sleep(20)
     ser.write(b'ATH\r\n')
     time.sleep(2)
@@ -102,8 +102,8 @@ try:
     print "\n\nBat dau test module Sim808 voi Raspberry Pi ... \n"
     print "Bat nguon cho module Sim808...\n"
     GSM_Power()			# Bat nguon cho module 
-    GSM_Init() 			# Khoi dong module 
-    #GSM_MakeCall() 		# Tao cuoc goi
+    GSM_Init() 		# Khoi dong module 
+    GSM_MakeCall() 		# Tao cuoc goi
     #GSM_MakeSMS() 		# Tao tin nhan 
     dataserial=''
     while (1):
