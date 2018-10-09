@@ -96,12 +96,12 @@ def GSM_MakeSMS(data):
     time.sleep(5)
     return
 #change DPI
-def changeDPIto200()
+def changeDPIto200():
     os.system('sh cron200.sh')
     return
 
 def changeDPIto300()
-    os.system('sh cron300.sh')
+    os.system('sh cron300.sh'):
     return
 
 # Simple example :
