@@ -1,3 +1,3 @@
 #!/bin/bash
-kill -9 $(pgrep inotiwait.sh)
+pkill inotifywait 
 echo done
