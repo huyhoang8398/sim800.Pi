@@ -34,6 +34,10 @@ ser = serial.Serial(
     timeout = 1
 )
 
+#### create a varible to store String from dataserial to change cron time 
+changeTime='' 
+
+
 # setup GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(C_PWpin, GPIO.OUT)
@@ -112,6 +116,14 @@ def Inowait():
 ####### daily information ####
 def dailyInfo():
     subprocess.call(['./info.sh'])
+############# write the message( include time to change to text file) 
+def writeTime():
+    f = open('ChangeTime.txt', 'w')
+    f.write(repr(changeTime))
+    f.close
+def changeTime():
+    subprocess.call(['./changeTime.sh'])
+
 # Simple example :
 try:
     print "\n\nBat dau test module Sim808 voi Raspberry Pi ... \n"
@@ -187,7 +199,14 @@ try:
                 GPIO.cleanup()
                 dataserial=''
                 os.system("sudo shutdown now")
-
+            ### change time to run cronjob ###
+            if(dataserial.find("change"):
+                print dataserial
+                changeTime = dataserial              
+                writeTime()
+                changeTime()
+                dataserial=''
+                changeTime=''
 
             #daily infomation########
             timecheck=datetime.datetime.now()
