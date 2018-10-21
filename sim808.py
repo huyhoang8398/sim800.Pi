@@ -36,7 +36,7 @@ ser = serial.Serial(
 
 #### create a varible to store String from dataserial to change cron time 
 changeTime='' 
-
+changeDPI=''
 
 # setup GPIO
 GPIO.setmode(GPIO.BCM)
@@ -123,6 +123,13 @@ def writeTime():
     f.close
 def changeTime():
     subprocess.call(['./changeTime.sh'])
+#### change DPI 
+def writeDPI():
+    f = open('ChangeDPI.txt', 'w')
+    f.write(repr(changeDPI))
+    f.close
+def changeDPI():
+    subprocess.call(['./changeDPI.sh'])
 
 # Simple example :
 try:
@@ -162,6 +169,7 @@ try:
                 Inowait()
 
               #change DPI#########
+            """  
             if(dataserial.find("200 to 300")>0):
                 print dataserial
                 changeDPIto300()
@@ -183,6 +191,13 @@ try:
                 #os.chdir(defPath)
                 # print "%s" % retval
                 dataserial=''
+            """
+            # change DPI
+            if(dataserial.find("DPI")>0)
+                print dataserial
+                changeDPI = dataserial
+                writeDPI()
+                changeDPI()
 
             #turn off sim module########
             if(dataserial.find("turn off sim")>0):
