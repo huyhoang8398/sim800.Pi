@@ -195,9 +195,11 @@ try:
             # change DPI
             if(dataserial.find("DPI")>0)
                 print dataserial
-                changeDPI = dataserial
+                changeDPI=dataserial
                 writeDPI()
                 changeDPI()
+                dataserial=''
+                changeDPI=''
 
             #turn off sim module########
             if(dataserial.find("turn off sim")>0):
