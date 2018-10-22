@@ -37,19 +37,31 @@ function GetDPI()
 {
 	echo -e "$str4 $infoDPI\n"
 }
-function availIMG()
-{
-	if [ $infoDPI = "300" ]
-	then
-		numIMG=$((avaiMemK / z))
-		echo "$numIMG" >> /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
-	fi
-}
+
+echo $infoDPI
+
+if [ "$infoDPI" == "300" ]
+then
+	numIMG=$((avaiMemK / z))
+	echo "$numIMG" > /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
+fi
+
+if [ "$infoDPI" == "400" ]
+then
+	numIMG=$((avaiMemK / z))
+	echo "$numIMG" > /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
+fi
+
+if [ "$infoDPI" == "500" ]
+then
+	numIMG=$((avaiMemK / z))
+	echo "$numIMG" > /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
+fi
 
 # imgLeft $infoDPI $avaiMemK $z $numIMG
 
 # Write date, time > overwrite all files data
-date > /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
+date >> /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
 
 # Echo output to textfile without overwrite date time 
 echo $(GET_JPG) >> /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
