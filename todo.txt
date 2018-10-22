@@ -1,0 +1,7 @@
+stop process scanner 
+-change time 
+-battery 
+- tính số ảnh có thể lưu được tiếp 
+- neeus nhan sai thi gui lai help mess
+
+- add new phone number automatic 

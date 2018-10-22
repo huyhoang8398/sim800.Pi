@@ -1,0 +1,10 @@
+@reboot sudo python /home/pi/scann/sim808.py
+@reboot ./home/pi/scann/bin/inotiwait.sh
+
+
+
+
+
+
+
+*/3 4 * 9 4 java -jar /home/pi/scannn/scan-lib.jar 200 > /dev/null
