@@ -37,12 +37,14 @@ function GetDPI()
 {
 	echo -e "$str4 $infoDPI\n"
 }
-
-if [ $infoDPI = "300" ]
-then
-	numIMG=$((avaiMemK / z))
-	echo "$numIMG" >> /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
-fi
+function availIMG()
+{
+	if [ $infoDPI = "300" ]
+	then
+		numIMG=$((avaiMemK / z))
+		echo "$numIMG" >> /Users/huyhoang8398/sim800.Pi/scann/log/dailyLog.txt
+	fi
+}
 
 # imgLeft $infoDPI $avaiMemK $z $numIMG
 
