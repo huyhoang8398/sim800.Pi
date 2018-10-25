@@ -93,18 +93,18 @@ def GSM_MakeCall():
 #********************************************************************
 def GSM_MakeSMS(data):
     print "Nhan tin...\n"
-    ser.write(b'AT+CMGS=\"0989612156\"\r\n')    # nhan tin toi sdt 012345678
+    ser.write(b'AT+CMGS=\"0918328099\"\r\n')    # nhan tin toi sdt 012345678
     time.sleep(5)
     ser.write(data)
     ser.write(b'\x1A')      # Gui Ctrl Z hay 26, 0x1A de ket thuc noi dung tin nhan va gui di
     time.sleep(5)
     return
 #change DPI##################
-def changeDPIto200():
-    subprocess.call(['./cron200.sh'])
+# def changeDPIto200():
+    # subprocess.call(['./cron200.sh'])
 
-def changeDPIto300():
-    subprocess.call(['./cron300.sh'])
+# def changeDPIto300():
+    # subprocess.call(['./cron300.sh'])
 
 ########### kill inotiwait background job ########
 def killIno():
@@ -116,6 +116,7 @@ def Inowait():
 ####### daily information ####
 def dailyInfo():
     subprocess.call(['./info.sh'])
+
 ############# write the message( include time to change to text file) 
 def writeTime():
     f = open('ChangeTime.txt', 'w')
@@ -123,6 +124,7 @@ def writeTime():
     f.close
 def changeTime():
     subprocess.call(['./changeTime.sh'])
+
 #### change DPI 
 def writeDPI():
     f = open('ChangeDPI.txt', 'w')
@@ -193,11 +195,11 @@ try:
                 dataserial=''
             """
             # change DPI
-            if(dataserial.find("DPI")>0)
+            if(dataserial.find("dpi")>0):
                 print dataserial
                 changeDPI=dataserial
                 writeDPI()
-                changeDPI()
+                #changeDPI()
                 dataserial=''
                 changeDPI=''
 
@@ -217,11 +219,11 @@ try:
                 dataserial=''
                 os.system("sudo shutdown now")
             ### change time to run cronjob ###
-            if(dataserial.find("change"):
+            if(dataserial.find("change")>0):
                 print dataserial
                 changeTime = dataserial              
                 writeTime()
-                changeTime()
+                #changeTime()
                 dataserial=''
                 changeTime=''
 
