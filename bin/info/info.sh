@@ -23,7 +23,7 @@ declare -i dpi300=6144
 #400 DPI
 # declare -i I = 
 # Write date, time > overwrite all files data
-date > /home/pi/scann/pictures/dailyLog.txt
+date > /home/pi/scann/log/dailyLog.txt
 
 
 function GET_MEM()
@@ -45,10 +45,10 @@ function GetDPI()
 	echo -e "$str4 $infoDPI\n"
 }
 # Echo output to textfile without overwrite date time 
-echo $(GET_JPG) >> /home/pi/scann/pictures/dailyLog.txt
-echo $(GET_PNG) >> /home/pi/scann/pictures/dailyLog.txt
-echo $(GET_MEM) >> /home/pi/scann/pictures/dailyLog.txt
-echo $(GetDPI) >> /home/pi/scann/pictures/dailyLog.txt
+echo $(GET_JPG) >> /home/pi/scann/log/dailyLog.txt
+echo $(GET_PNG) >> /home/pi/scann/log/dailyLog.txt
+echo $(GET_MEM) >> /home/pi/scann/log/dailyLog.txt
+echo $(GetDPI) >> /home/pi/scann/log/dailyLog.txt
 
 echo $avaiMemK
 echo $infoDPI
@@ -57,19 +57,19 @@ echo $infoDPI
 if [ "$infoDPI" == "300" ]
 then
 	numIMG=$((avaiMemK / dpi300))
-	echo -e "$str5 $numIMG" > /home/pi/scann/pictures/dailyLog.txt
+	echo -e "$str5 $numIMG" >> /home/pi/scann/log/dailyLog.txt
 fi
 
 if [ "$infoDPI" == "400" ]
 then
 	numIMG=$((avaiMemK / dpi300))
-	echo -e "$str5 $numIMG" > /home/pi/scann/pictures/dailyLog.txt
+	echo -e "$str5 $numIMG" >> /home/pi/scann/log/dailyLog.txt
 fi
 
 if [ "$infoDPI" == "500" ]
 then
 	numIMG=$((avaiMemK / dpi300))
-	echo -e "$str5 $numIMG" >> /home/pi/scann/pictures/dailyLog.txt
+	echo -e "$str5 $numIMG" >> /home/pi/scann/log/dailyLog.txt
 fi
 
 # imgLeft $infoDPI $avaiMemK $z $numIMG
