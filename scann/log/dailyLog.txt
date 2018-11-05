@@ -1,0 +1,6 @@
+Tue Oct 23 11:29:08 +07 2018
+Images JPG: 0
+Images PNG: 0
+Free storage: 38Gi
+DPI: 500
+Number of Picture can take: 6520
