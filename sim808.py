@@ -26,13 +26,13 @@ PWKpin  = 17        # chan PWK : bat/tat RPI Sim808 Shield
 
 # setup serial
 ser = serial.Serial(
-    port = '/dev/ttyAMA0',
-    baudrate = 9600,
-    parity = serial.PARITY_NONE,
-    stopbits = serial.STOPBITS_ONE,
-    bytesize = serial.EIGHTBITS,
-    timeout = 1
-)
+        port = '/dev/ttyAMA0',
+        baudrate = 9600,
+        parity = serial.PARITY_NONE,
+        stopbits = serial.STOPBITS_ONE,
+        bytesize = serial.EIGHTBITS,
+        timeout = 1
+        )
 
 #### create a varible to store String from dataserial to change cron time 
 changeTime='' 

@@ -44,8 +44,8 @@ crontab -l > cron.txt  #### Check current scheduled cron:
 #sed -e "s|$daysOrig|$days|3" cron.txt
 #sed -e "s|$monthOrig|$month|4" cron.txt
 #sed -e "s|$weakdayOrig|$weekday|5" cron.txt
-#sed -i '/scan-lib/d' cron.txt ## linux 
-sed -i '' '/scan-lib/d' cron.txt ## macOS and freeBSD
+sed -i '/scan-lib/d' cron.txt ## linux 
+#sed -i '' '/scan-lib/d' cron.txt ## macOS and freeBSD
 echo -e "$minut" "$hour" "$days" "$month" "$weekday"  "java -jar /home/pi/scannn/scan-lib.jar 300 > /dev/null" >> cron.txt
 crontab cron.txt
 
