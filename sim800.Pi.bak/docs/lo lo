@@ -1,0 +1,174 @@
+lo lo
+ok
+
+
+vi fong copy 
+cadyo 
+doi t ty
+ok o
+ok
+tu tucd 
+
+ok
+ong copy chuong trinh sms vao trong folder nay di
+:| t tuong ong co source code r 
+:| 
+y la de giang them luon trong do, bo may function ko can thiet. chinh lai thanh code cua minh =))~/
+
+ok oklam luon
+ok. bay gio minh k dung call => xoa no di
+trong cai try cua minh se them cai while
+sau khi da init thanh cong
+co nghia la no khoi tao cai module sim truoc
+sau do vao cai while
+baty gio da ta cua minh no nam trong bien dataserial
+gio minh kiem tra thu co data trong do khong bang cach kiem tra do dai chuoi dataserial
+neu co da ta trong bien => tim noi dung minh can dieu khien co trong tin nhan hay khong
+vi du ong nhan "BATDEN" thi minh se tim chuoi "BATDEN" ben trong thang dataserial
+hieu k :vokok
+quen mat tim chuoi cmnr :v gooogle da
+vl
+t tu
+ong viet cai doan doc file log luu vao bien data1 g
+can than sai do. trong cai if nay minh doc file ra. nhu chuong trinh no doc dung 1 lan luc khoi dong ak, af ok ok
+ hieu toi khuc nay chua  :v
+
+ ok hieu 
+ cai function makeSMS  write(data )hay print(data)
+ den nay hieu r dung k
+ tai sao lai laf ser print 
+ hom truoc ong noi write ko duoc :v
+ af dc og a =))
+ =)) tuong dau k duoc :)))
+ v de write hay print cung nhu nhau. 
+ tai data ben trong cua minh cung la char 
+ nhung no van send sms bthuong?
+  d
+  dusng rok nau k de write cung duoc =))
+  lo dau sai thi que lam :v ma chac 
+  OMG :v
+  thoi cai function call cu de day cx dc
+  acoi
+   thoi de t go cx dc
+   :v thoi quen ctrl z =))
+   dung vim di ong =(( shit nano
+   nhu nao nhi
+   ong go voi
+   ))
+   ok
+
+   gio kiem
+   sao tab no meo cung hang nhi :-\thoi may cai sua cho dep thi lat t sua cx dc
+   okaf af 
+   ok ok nham
+   doet
+   tiu r 
+   :| t ddang het tien dt 
+   :|
+   doc sasi vl
+   doc sdt day =))doi ty
+   t di kiem cai the dt 
+   k thi k nhan lai cho ong dctxt
+   vkiem tra lai duong dan. no bi sai hoac chua co file log1.
+   :|
+   doi ty
+   t dang nho ng mua ther :| 
+   z cho test truoc di. doc sdt t gui tin nhan test thu
+   01657377877
+   ok ong chay file python nay len di, them lenh sudo cho chac
+
+tam thoi cai txt nay de sau. kiem tra thu cai tui nhan tin toi no co nhan duoc chay vao k da :v
+:|
+hinh nhu init co van de
+htruoc t van nhan tin bthuong ma ;|
+minh command cai makesms r . gio minh can test la cos sms hay khong thoi
+ong thoat cai vi ra chay lai ho tui
+cai vi nay dung k quen =))
+co tin nhan =)))
+co tin nhan gui toi roi do ong. de thay bang cai readline lai =))doi xiu
+ong cu xua di
+t thao cai sim nap cai the 
+ok dc r 
+
+
+
+
+ong chay cai nay len di
+sao day?
+hinh nhu thang readline no k chay. read no chay. tai trong sms no khong co ben trong \r\n nen no k hieu la 1 line
+nhu 
+cai vim nay thoat ra phim nao v =)) esc :wq
+ham read thi no chay, readline k chay vi thang sim no k co \n =))ok
+
+ong cu dung nano cx dc ma :v
+hieou  y dhieurokok
+chay lai t hu ong
+ua trong code tui dau co thay thang nomal power down dau ta :v
+thang sim no gui, hinh nhu chua bat sim duoc
+t nghi ong nen code tuwf dau di
+:|
+ca may cai init 
+no chay r ne =))) 
+no chay ngon r ak. power de delay lau xiu =))  ong lay dt ong test thu di :))\\
+t co moi 1 cai sim
+cam vaof con PI mat r ;|
+thoi 
+no chay duoc r ak
+bay gio minh se kiem tra dau + neu co dau + thi moi + don chuoi vao, k thi k cong don. de chuoi no ngan lai. :))
+hieu y t k  
+dde lay ca cai sdt ha?
+khong, y t la thay cai chuoi nhan tin nhan khong. bat dau = dau '+'
+vay nen minh moi kiem tra cho cai bien tam ,cho cai chuoi no ngan lai xiu =)) hoac k thi thoi cung k sao. cung hon nhau vai byte ak =))
+the ong lma cx dc
+ong thay no da chay vao cai nhan dung sms chua?
+ok
+bay gio neu nhan dung sms thi gui lai file log
+gio lam sao mo duoc file log ra truoc da =))
+
+co goi fs
+ong da setup cai sdt cua ong dau
+16
+co cai goi fs de lam viec voi thang txt nay ne
+ ok da duoc r day =))
+ ong thu tim cach mo file txt ra gui di
+ code chay r ak
+ ok 
+ chac la cai nay no chay do =)))
+
+ ok =)))
+ gio check ket qua =))
+ con cai time mai ranh tui lam =)) chuan bi ngu mai di lam da :v
+ lam le ho t voi ;|
+ sao z =))
+ tadio  cx can ma
+ du an j hay sao ma gap v 
+ ua sao tat :v
+ da nhan duoc r =)))
+ t gui ong  hinh tren face do
+ nhung no nhan nhieu lan ha?
+ tai t gui 2 3 tin gi do lan =))
+ de xem thu  tai tui gui 3 tin
+ xem thu co tin so 4 k =)) 
+ k co sms so 4 r =)))
+ the cai time.sleep(0.5 ) la sao nhi
+ cho no delay thoi ak ma =))
+ k thich thi minh xoa no di cung dc
+ vay sao no k power off nhir
+ :|
+ trong  vong while(1) :))) 
+ no dau co chay xuong duoc thang power down
+  dodka oaku
+  ok ok
+  giam delay xuong xiu cho no nhanh =))
+  ok r do. con cai time mai nha =))
+  the ong code luon di
+  mai nem t luon
+  nhu nay lau qua :|
+  hoc them, hieu them ma lau gi dau =))
+  ok ok :|
+  neu k thi mai tui gui luon cho nhanh =)) ong them vo thoi
+  uk ok ong
+  hieu code r dung k =))
+  uk t hieu r 
+  :v
+  tho kokoi okok g9

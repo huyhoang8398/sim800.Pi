@@ -1,0 +1,368 @@
+ok
+bay gio lam cai startup file python khi raspberry boot len truoc
+ok v ngon ne =))
+tao 1 folder de chuong trinh boot cua minh vao trong do
+vi du tui tao 1 file ten la chuongtrinh.py 
+tui lay mot cai example blink led truoc
+ong code cai led chop tat vo di hoac chuong trinh gi cung duoc =)))
+cais script af?
+dung roi
+de xem thu con raspberry khi khoi dong co chop tat led khong do ma
+chung minh la script chay khi boot he dieu ok ok
+ok
+sudo
+cai nay echo la xuat ra console chu hello 
+cais nayf la xuat hello ra file txt
+nen :v ty boot ma co file test.txt thi la no chay r 
+ok 
+file script minh dung python v de xuat ra logs cho de di =))
+:(  t k ranhf python lam
+=(( k thi da k phai nho ong code cais kia =))
+ok =))) v đe t copy cai vi du 
+tai minh boot file py 
+nhung neu chay file sh kia thi co dc k nhi
+duoc =))) ok
+gui minh cai file example
+minh cop vao cho le :))
+gui qua fb cx dc
+o nhuwng minh k co led thi nos se ntn :|
+có VOM không
+sao k thuwr 
+import OS
+r chay cais script kia cho le 
+=))
+
+VOM?
+:v
+
+v để cho nó tạo txt cho nhanh =))ok ok =))
+dợi xíu =))) để seach =)) lâu quá quên
+hinhf nhuw t co 
+copy vô đi =))
+ihay tui co cach nay =)))))))i
+hinh nhu ong code nham r 
+chij]
+ok
+=)) ok
+vaix =))) ok
+gio tao 1 file launch.sh de rasp thuc thi
+cai nay de chay vao dile 
+ook
+t hieu may cai linux v:v
+=)))))
+hieu may cai nay k :v
+ua dau co sai duong dan den file script dau ta ;v
+de t cthu
+ok v la file laucher minh chay r do
+gio tao file logs de xem thu no boot khi nao co loi gi khong =))
+chưa hiểu lắm ;|
+okvaya j t
+vậy nó có khác j với tạo 1 cái cronjob nhỉ :|
+đúng r
+:))ok ok =))
+la no do
+ ok vay t biet r :))
+ ông có cái j thử gsm k :v 
+ ong co module do khong =))
+ t co r =))
+ ok
+ bay gio lam cai thu 2 da
+ script nay chay script khac
+ ong lam cduoc cai do chua
+ nghĩa là 
+ chạy launcher.sh 
+ xong cái launcher chạy cái file để nhưans tin hả?
+ cái launcher.sh muc dich cua tui la de raspboot chay file sh do len
+ trong file sh minh cho no chay file python
+ à ok ok
+
+
+
+
+
+xong cái file python
+có 1 cái script khác, khi nhận tin thì nó chạy cái script thứ 2?
+đúng r
+giờ tới cái đó nè
+=)) ừ 
+mh bị mắc mỗi cái đoạn AT command cđó thôi
+bay gio chua noi den AT
+de mchay cai kia xong cho ong hieu da
+r moi den ATok
+nói luôn là
+mình sẽ check trong buffer serialport
+có data hay không rồi tách chuỗi trong đó ra :v dạng v
+hoặc đơn giản hơn là so sánh :v
+giowf tới 1 script python chay 1 script python khác trước đã
+o len ok ok hieur hieu =))
+=))
+roi bay gio chay script chuong trinh len
+thi script chuongtrinh2 se chay
+=))) hieu chua :vv
+ok ok ls
+
+
+
+
+nayx queen tu nhien xoa cai doan tao file txt cmn =))) de reboot lai rasp xem chay chua nua chu =)))
+o nhung da setup job cho no dau?
+co roi 
+cais chmod 775 ha?
+
+ong check thu fila abc.txt duoc tao chua=))
+ok ok 
+ ok =))) nhu z la cai boot da chay thang launcher r 
+ :)) ok ok 
+ tua nhanh di
+ may cai nay t hieu =)) hehe
+ ok gio den thang AT COMMAND NE =))))
+ dmC Ot dm tk nay kho v
+ :|
+
+
+ong co biet serial port khong (RS232, UART)?
+co nghia la thang rasp se giao tiep voi module sim theo serial port
+cos t co biet 1 it
+vi dung nhu minh gui chuoi "AT" thi module sim se tra lai chuoi "OK"
+ ok 
+ nhu vay ban dau minh phai biet duoc no se gui cho minh cai gi
+ vi du
+ co cai lenh goi dien do
+ ong gui AT+........
+ thi no se hieu 
+ va thuc thi
+ tin nhan cung vay
+ co 1 lenh AT trong code se la khi co tin nhan toi
+ module sim se tu dong mở tin nhắn đó lên và gửi serial qua rasp
+hiểu khúc này k
+cos ong
+module sim gửi đến rasp ko chỉ có nội dung tin nhắn
+mà gồm sdt người gửi + time + bla bla 
+như v mình phải tách chuỗi đó ra
+đơn giản hơn là tìm 1 chuỗi trong chuỗi =))
+dduf ok ong
+hieu hieu
+mở đoạn code ông gửi tui đi
+nói ro hơn 
+ong thay Ser.write không
+nó là hàm để gửi
+ ok ong
+ nhu vay noi dung rasp gửi đến module sim sẽ bắt đầu bằng AT
+ ok chưa
+ ok
+ ở đây mình không dùng đến gọi điện và gửi sms nên mình k quan tâm
+ quan tâm phần khởi tạo (INIT)
+ ATE0 là tắt phản hồi chữ OK đó
+ AT +IPR=9600 là cấu hình cho sim tốc độ baude là 9600bit/s
+ mình làm với sms nên chọn text mode( HTTP, MMS thì khởi tạo khác)
+ thằng CLIP k quan tâm có cũng đc k có cũng k sao =))
+ thằng hiển thị trực tiếp nội dung tin nhắn mới quan trọng
+ hiểu khúc này k
+ ok
+ nhu vay trong thang try: 
+ mình sẽ có một cái handel hoặc cho nó cái while 1: 
+ để check buffer serial có chuỗi từ sim gửi đến rasp không
+ af nghiax laf 
+ khi ông gửi tin nhắn đến , VD : hello
+ thì buffer sẽ là 
+ hello 0132432432 17:99
+ xong cái try là check xem có hello + sđt 
+ nếu có thì sẽ >> job?
+ nˆeếu c´o chạy script kia lˆen
+ cxong dđoóng script này lại => done :v
+ ok ok :V
+ hiểu dđuưoợc vˆaấn dđeề r chứ :))) 
+ haby ong :|
+ nhưng vẫn bị vướng đoạn try với AT =((( syntax nhu ...
+ )))
+
+ong bat goole len =))
+ong doc thu di =)) no viet de hieu
+dang nhu lmodule sim la mot SOC rieng
+có cái chỗ nào có cái đoạn read buffer k nhỉ :|
+à kk 
+cái đó là python =))
+module sim gửi serial đến rasp
+thì data nó nằm trong con rasp =))
+mở 
+ông thấy nó cũng dùng while để check không
+data sẽ lưu vào trong biến kia =))
+nhung t chua hieu laf 
+nếu cái tin mà t nhận dc ý, thì nó sẽ lưu vào đâu
+nó lưu vào trong bộ nhớ của sim
+có 2 cách để lấy sms ra
+cách đầu tiên như trong code là khi có tin nhắn thì nó tự động mở ra và gửi qua serial
+cách thứ 2 là gửi AT đến module sim để mở tin nhắn thứ n nào đó
+à thế 1 prefer cách 1 :|
+đó là cái t cần :v
+uhn.g 
+à à 
+nghĩa là 
+khi có tin nhắn
+thi AT+CMNI=2,2
+r 
+import serial, time
+
+ser = serial.Serial('/dev/ttyACM0', 9600)
+
+while 1:
+    serial_line = ser.readline()
+
+    print(serial_line) # If using Python 2.x use: print serial_line
+    # Do some other work on the data
+
+    time.sleep(300) # sleep 5 minutes
+
+    # Loop restarts once the sleep is finished
+
+ser.close() # Only executes once the loop exits
+
+
+cái AT+CMNI chỉ gửi đến sim 1 lần lúc khởi tạo thôi
+nó tự biết
+khi có sms là tự bung sms và gửi full nội dung sms qua serialport
+nhiệm vụ của mình là read buffer từ serial ra để so sánh :))
+oh ok ok 
+:|
+nhưng sẽ có phát sinh bug. ví dụ như 
+khi có sms, sim gửi đến, ông mà k xoá cái biến serial_line đi ilajf  ok ok 
+bị lưuu đè đúng k?
+à k phải, bị kiểu hello hello hả?
+đúng r =))))
+nên mới check xong, chạy script kia lên xong là break, và đóng script này lại =))có cái clean cái buffer k nhỉ? không cần, chỉ cần xoá data trong biến serial_line là được r. mà có hàm clean nó đó =))) coder là google :v mở lên hộ tui\
+
+thế chắc là ok t hiểu r :|
+nhưng cái đoạn job, t chưua hiểu lắm
+nếu mà t có 1 job là cái file gửi sms của t ý, cái mà đang bật ở bên phải, cứ đến khoảng 8h tối thì nó chạy python sim.py này. sau đó ông có cái job khác, đc mở lên mỗi khi reboot, và k bao giờ tắt. 
+chưa hiểu lắm :v
+nghia là, t có 1 cái launcher1.sh nhé, cái tk này sẽ dc chạy vào lúc 8h tối mỗi ngay, tk launcher 1 này chạy cái file mà bên phải t đang bật, nó chỉ có nhiệm vụ nhắn tin sms report cho t vào môi tối.
+
+còn 1 cái launcher2.sh, cái tk này thì luôn luôn chạy, tk này có nhiệm vụ khác là, nếu nhận tin nhắn thì sẽ gửi cho t 1 cái sms khác với cái nội dung của cái mỗi 8h tối kia
+
+thì bây h cái file python kcủa cái 2 kia có bị lsao với cái 1 k nhỉ :|
+với có khả thi nếu làm cái thứ 2 k
+
+có. serial port chỉ mở đồng thời 1 job, serialport đang mở job này thì jobb kia ko mở được
+vậy thì cái job 8h tối, mà lúc 8h tối t lại nhắn tin, thì nó sẽ bị bug ?
+right. tại sao k code trong1 chương trình luôn
+chia thread ra.
+hoặc đơn giản hơn nè =))
+trong cái while(1)
+
+đầu tiên check xem 8h chưa? nếu 8h rồi thì send sms
+sau đó check buffer xem có sms không?
+vậy đơn giản hơn
+hiểu ý t không :v
+đù :|
+nghĩa là vẫn có job luôn chạy, chỉ là cái đoạn while 1 vào 8h thì gửi , còn đâu thì cứ check sms? right =))
+nghe khó nhỉ :| 
+t chưa code python nhiều....
+thay code mau co send sms r kia =)))
+thay cai open script khac bang cai function GMS_MakeSMS do la xong :v
+ông có code k :| 
+ktưởg xong r ;| tại cx phải ck cho ông luôn :| vất ông ngồi tối vl :|
+tui chỉ code xong phần nhận sms để chạy script kia lên mà chưa test, để mai lấy con module sim test r send ông luôn =)) chứ xong hồi sáng nay r =)) , ơ thế làm hộ t cái đoạn  dck  nhỉ?
+thêm vào trong code xem 8h gửi sms chứ j
+đúng ông
+có nghĩa là theo code ông gửi
+là đúng 8h tối
+mở file txt ra 
+rồi gửi nội dung trong txt 
+đúng đúng
+còn nếu nhận tin nhắn
+thì mở tk txt khác, r nhắn tk đấy 
+cái đấy chắc t làm dc :|
+à k :|
+vậy thôi
+nghĩa là, nói chung thì cái của t làm ý 
+phần to là java để chụp cái rễ của 1 cái thân cây mỗi ngày 
+
+xong đến cuối ngày thì sẽ có cái file log là đếm tổng số ảnh trong folder + bộ nhớ các thứ
+là txt1 
+thì cái này là cái 8h tối sẽ nhận, 
+thì nó là job1 chạy sh để lấy file txt, r sau đó job2 là gửi sms
+
+còn có 1 cái job3 là, nó là 1 cái sh khác t dùng để check xem những file nào đã đc ghi và đã xoá trong cái folder đó, vì file txt đó rất dài, nên chỉ nhắn khi nào mình muốn đọc thôi,
+
+t bị tắc đoạn với module sim =)))
+
+hiểu r =))
+vậy code thằng module sim check file txt của job 1 lúc 8h gửi thằng đó đi, ngoài ra check xem có sms không để gửi thằng job3 ừ kiểu đó . 
+v ông bỏ cái job 2 đi =)))
+để code cái python nayf , chứ 1 serialport không thể mở 1 port cho 2 thằng 1 lúc.
+có nghĩa là cái code của t viết sẽ read job 1 lúc 8h tối và gửi, và nếu có sms sẽ gửi log của job 3. đúng k.
+
+
+
+t có 1 file everyday.sh, 1 setup cái cronjob cho nó chạy vào khoảng 7h55, r job 2 chỉ là python sim.py 
+
+bo cai job 2 di, thay no bang cai chuongtrinh.py hoi nay
+trong do se send luc 8h toi 
+à à 
+nó là như thế này
+file everyday.sh của ông chạy lúc 7h55 đúng k
+thì nó k liên quan j đến thằng py
+thằng py có nhiệm vụ lấy data từ file log của thằng everyday.sh lúc 8h và gửi sms di
+và đợi có tn thì gửi logs của thằng conf lại à ok ok, 
+hiểu chưa :v :v ok ông 
+chứ nếu cái py của tui đang dùng serialport mà job 2 của ông chạy lên là đảm bảo k chạy job 2( k gửi dc sms)
+tai serialport file cua tui dang su dung de giao tiep r, ne n thang okk oik a: v hiểu r :)) 
+
+ok ông :| 
+v ông xoá job2 đi. thằng python trong while đảm nhiệm , ok vậy là chỉ có , job 1 là everyday script, job 2 là log dài, job 3 là cái python của ông nhỉ :|
+uh, cái python của tui mai code lại sẽ như thể này nhé:
+	- 8h gửi sms ( từ nội dung của log1)
+ cái thời gian này t có thể thay thế dc nhỉ? 
+ 		sửa trong code nhanh mà :v 
+ 		ok ok
+ 	- đợi nhận sms, nếu đúng sms thì gửi log2
+
+ là như thế đúng k :v, và nó chạy vĩnh viên, cứ reboot thì lại mở lên nhỉ 
+ thì nãy tui đã oko:v 
+
+ à có cái này, nếu check buffer dc cái string sms, thì có thể check cả sđt luôn nhỉ 
+ uh, thời gian nó gửi luôn =))), ok. T chưa hiểu là, cái module sim này có thường bị kiểu sai số hay delay time hay j j đó k 
+ time của nó là time của tổng đài =)))
+ nó k biết time đâu, time là phần header trong gói tin (SMS) mà tổng đài chêm vô, à có nghĩa là giống đthoai của t đúng k? đúng r =))
+ ok ok 
+ vậy có j khoảng chiều mai là xong nhỉ 
+ báo t uhđể t ck :| 
+ k ok, latioj oid
+ dotnogos cửa 
+ tối mai gửi ông code =)))
+ à ông nhớ t mấy cái chân nhé
+
+
+
+
+
+
+yên tâm =)))tôi cũng dùng chân đó à, cho ông đỡ chỉnh mò mò hư con raspb nữa =))))
+à , con naỳ có cái chân  PWKpin, thì có nghĩa là , t cũng dùng nó để nhận tin nhắn tắt module để cho đỡ tốn điện thì cx tắt được nhỉ 
+
+nhưng tắt r sao nhận sms :))
+à tại dùng pin ý, thì lúc nào cần thì tắt đi r ra chỗ nông trại thay pin =))
+ok ok , chắc t đọc code ông r làm lại cái đoạn đấy chắc dc
+ok :)))
+thôi g9. tôi đi ngủ mai đi làm 
+=ok ông tks nhé =))
+còn cái bug lớn mai ráng tiếp =)) g9 ok ok :v 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ c

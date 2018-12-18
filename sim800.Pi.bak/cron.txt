@@ -1,0 +1,2 @@
+@reboot echo "hello"
+4 5 * * * java -jar /home/pi/scannn/scan-lib.jar 2000 > /dev/null
